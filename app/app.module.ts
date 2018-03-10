@@ -13,7 +13,7 @@ import {EventsListComponent, EventThumbnailComponent, EventService,
         SessionListComponent} from './events/index'
 import { AuthService } from "./users/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CollapsibleComponent } from "./common/collapsible-well-component";
+import { CollapsibleComponent } from "./common/collapsible-well.component";
 
 @NgModule ({
     imports: [BrowserModule,

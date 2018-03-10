@@ -2,12 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'collapsible-well',
-    template: `
-    <div (click)="toggleContent()" class="well pointable">
-        <h4 class="well-tite">{{title}}</h4>
-        <ng-content *ngIf= "visible"></ng-content>
-    </div>
-    `
+    templateUrl:'app/common/collapsible-well.component.html'
 })
 
 export class CollapsibleComponent  {
