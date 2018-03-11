@@ -15,6 +15,9 @@ import { AuthService } from "./users/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CollapsibleComponent } from "./common/collapsible-well.component";
 import { DurationPipe } from "./events/shared/shared.pipe";
+import { TOASTR_TOKEN } from "./common/toastr.service";
+
+declare let toastr: any
 
 @NgModule ({
     imports: [BrowserModule,
@@ -31,7 +34,8 @@ import { DurationPipe } from "./events/shared/shared.pipe";
         EventListResolver,
         AuthService,
         {provide: 'canDeactivateCreateEvent',
-        useValue: checkDirtyState}
+        useValue: checkDirtyState},
+        {provide: TOASTR_TOKEN, useValue: toastr}
         ]
 })
 export class AppModule {}
