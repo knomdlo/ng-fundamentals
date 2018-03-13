@@ -14,8 +14,8 @@ import {EventsListComponent, EventThumbnailComponent, EventService,
 import { AuthService } from "./users/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DurationPipe } from "./events/shared/shared.pipe";
-import { TOASTR_TOKEN, CollapsibleComponent, JQ_TOKEN } from "./common/index";
-import { SimpleModalComponent } from "./common/simple-modal.component";
+import { TOASTR_TOKEN, CollapsibleComponent, JQ_TOKEN, 
+        SimpleModalComponent, ModalTriggerDirective } from "./common/index";
 
 declare let toastr: any
 declare let jQuery: Object
@@ -28,7 +28,7 @@ declare let jQuery: Object
      [EventsAppComponent, EventsListComponent, EventThumbnailComponent,
       NavBarComponent, EventDetailsComponent, CreateEventComponent, 
      Error404Component, CreateSessionComponent, SessionListComponent,
-     CollapsibleComponent, SimpleModalComponent,
+     CollapsibleComponent, SimpleModalComponent, ModalTriggerDirective,
      DurationPipe],
     bootstrap: [EventsAppComponent],
     providers: [
