@@ -13,11 +13,12 @@ import {EventsListComponent, EventThumbnailComponent, EventService,
         SessionListComponent} from './events/index'
 import { AuthService } from "./users/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CollapsibleComponent } from "./common/collapsible-well.component";
 import { DurationPipe } from "./events/shared/shared.pipe";
-import { TOASTR_TOKEN } from "./common/toastr.service";
+import { TOASTR_TOKEN, CollapsibleComponent, JQ_TOKEN, 
+        SimpleModalComponent, ModalTriggerDirective } from "./common/index";
 
 declare let toastr: any
+declare let jQuery: Object
 
 @NgModule ({
     imports: [BrowserModule,
@@ -27,7 +28,8 @@ declare let toastr: any
      [EventsAppComponent, EventsListComponent, EventThumbnailComponent,
       NavBarComponent, EventDetailsComponent, CreateEventComponent, 
      Error404Component, CreateSessionComponent, SessionListComponent,
-     CollapsibleComponent, DurationPipe],
+     CollapsibleComponent, SimpleModalComponent, ModalTriggerDirective,
+     DurationPipe],
     bootstrap: [EventsAppComponent],
     providers: [
         EventService, EventRouterActivator,
@@ -35,7 +37,8 @@ declare let toastr: any
         AuthService,
         {provide: 'canDeactivateCreateEvent',
         useValue: checkDirtyState},
-        {provide: TOASTR_TOKEN, useValue: toastr}
+        {provide: TOASTR_TOKEN, useValue: toastr},
+        {provide: JQ_TOKEN, useValue: jQuery}
         ]
 })
 export class AppModule {}
