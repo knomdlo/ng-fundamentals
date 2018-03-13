@@ -26,7 +26,6 @@ export class NavBarComponent {
             console.log(this.foundSessions);
         }) */
         this.foundSessions = this.eventService.searchSessions(searchTerm);
-        console.log(this.foundSessions);
     }
 
 }
