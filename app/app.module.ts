@@ -10,7 +10,7 @@ import {EventsListComponent, EventThumbnailComponent, EventService,
         EventDetailsComponent, CreateEventComponent, EventRouterActivator,
         EventListResolver, 
         CreateSessionComponent,
-        SessionListComponent} from './events/index'
+        SessionListComponent, UpvoteComponent} from './events/index'
 import { AuthService } from "./users/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DurationPipe } from "./events/shared/shared.pipe";
@@ -28,7 +28,8 @@ declare let jQuery: Object
      [EventsAppComponent, EventsListComponent, EventThumbnailComponent,
       NavBarComponent, EventDetailsComponent, CreateEventComponent, 
      Error404Component, CreateSessionComponent, SessionListComponent,
-     CollapsibleComponent, SimpleModalComponent, ModalTriggerDirective,
+     CollapsibleComponent, SimpleModalComponent, UpvoteComponent,
+     ModalTriggerDirective,
      DurationPipe],
     bootstrap: [EventsAppComponent],
     providers: [
