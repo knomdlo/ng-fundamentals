@@ -24,7 +24,8 @@
     </div>
     
     <!-- A way of grouping multiple model fields under a key -->
-    <div ngModelGroup= "location">
+    <!-- validateLocation is a directive that does custom validation -->
+    <div ngModelGroup= "location" validateLocation>
         <div class="form-group">
         <label for="address">Event Location:</label>
         <input (ngModel)="address" name="address" id="address" type="text" class="form-control" placeholder="Address of event..." />
