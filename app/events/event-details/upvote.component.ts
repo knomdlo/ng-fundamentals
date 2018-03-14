@@ -7,8 +7,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class UpvoteComponent {
+    iconColor: string;
     @Input() count: number;
-    @Input() voted: boolean;
+    @Input() set voted(val) {
+        this.iconColor = val ? 'red': 'white';
+    }
     @Output() vote = new EventEmitter();
 
     onClick() {
