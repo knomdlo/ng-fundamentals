@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DurationPipe } from "./events/shared/shared.pipe";
 import { TOASTR_TOKEN, CollapsibleComponent, JQ_TOKEN, 
         SimpleModalComponent, ModalTriggerDirective } from "./common/index";
+import { VoterService } from "./events/event-details/voter.service";
 
 declare let toastr: any
 declare let jQuery: Object
@@ -36,6 +37,7 @@ declare let jQuery: Object
         EventService, EventRouterActivator,
         EventListResolver,
         AuthService,
+        VoterService,
         {provide: 'canDeactivateCreateEvent',
         useValue: checkDirtyState},
         {provide: TOASTR_TOKEN, useValue: toastr},
