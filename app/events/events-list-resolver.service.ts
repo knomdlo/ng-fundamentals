@@ -10,6 +10,7 @@ export class EventListResolver implements Resolve<any> {
 
     }
     resolve(){
+        //No .subscribe is needed here since this is the resolve method automatically subscribes to it
         return this.eventService.getEvents()
     }
 }

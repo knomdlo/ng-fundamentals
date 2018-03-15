@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { EventService } from "../shared/event.service";
 import { ActivatedRoute, Params } from "@angular/router";
-import { ISession } from "../shared";
+import { ISession, IEvent } from "../shared";
 
 
 @Component({
@@ -25,8 +25,10 @@ export class EventDetailsComponent implements OnInit {
         this.route.params.forEach((params: Params) => {
             //NOTE: When routing to same component, state of the route should be maintained.
             //Eg: addMode/ filterBy/sortBy in this component
-            this.event = this.eventService.getEvent(+params['id']);
-            this.addMode = false;
+            this.eventService.getEvent(+params['id']).subscribe((event: IEvent) => {
+                this.event = event;
+                this.addMode = false;
+            })
         })
     }
 
