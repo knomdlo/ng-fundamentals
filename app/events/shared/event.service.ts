@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { Subject, Observable } from "rxjs/RX";
 import { IEvent, ISession } from ".";
-import { Http, Response } from "@angular/http";
+import { Http, Response, Headers, RequestOptions } from "@angular/http";
 // import { Observable } from "rxjs/Observable";
 
 @Injectable()
@@ -21,10 +21,15 @@ export class EventService {
     }).catch(this.handleError)
   }
 
+  // If event passed is w/o id then it's a save new else it's an update
   saveEvent(event) {
-    event.id = 999
-    event.session = []
-    EVENTS.push(event)
+   let headers = new Headers({'Content-Type': 'application/json'});
+   let options = new RequestOptions({headers: headers});
+
+   return this.http.post('/api/events', JSON.stringify(event), options)
+          .map((response: Response) => {
+            return response.json();
+          }).catch(this.handleError);
   }
   updateEvent(event) {
     let index = EVENTS.findIndex(x => x.id == event.id)
