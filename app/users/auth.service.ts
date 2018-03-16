@@ -29,6 +29,22 @@ export class AuthService {
         return !!this.currentUser
     }
 
+    checkAuthenticationStatus() {
+        return this.http.get('/api/currentIdentity').map(response => {
+            let res: any = response;
+            if(res._body) {
+                return response.json();
+            } else {
+                return {}
+            }
+        })
+        .do(currentUser => {
+            if(!!currentUser.userName) {
+                this.currentUser = currentUser;
+            }
+        }).subscribe()
+    }
+
     updateUser(firstName: string, lastName:string) {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
