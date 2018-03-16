@@ -8,10 +8,10 @@ import { appRoutes } from "./routes";
 import { Error404Component } from "./errors/404.component";
 
 import {EventsListComponent, EventThumbnailComponent, EventService, 
-        EventDetailsComponent, CreateEventComponent, EventRouterActivator,
+        EventDetailsComponent, CreateEventComponent, 
         EventListResolver, 
         CreateSessionComponent,
-        SessionListComponent, UpvoteComponent, LocationValidator} from './events/index'
+        SessionListComponent, UpvoteComponent, LocationValidator, EventResolver} from './events/index'
 import { AuthService } from "./users/auth.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DurationPipe } from "./events/shared/shared.pipe";
@@ -36,8 +36,8 @@ declare let jQuery: Object
      DurationPipe],
     bootstrap: [EventsAppComponent],
     providers: [
-        EventService, EventRouterActivator,
-        EventListResolver,
+        EventService, 
+        EventListResolver, EventResolver,
         AuthService,
         VoterService,
         {provide: 'canDeactivateCreateEvent',

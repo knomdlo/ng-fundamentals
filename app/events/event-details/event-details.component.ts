@@ -23,12 +23,8 @@ export class EventDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params.forEach((params: Params) => {
-            //NOTE: When routing to same component, state of the route should be maintained.
-            //Eg: addMode/ filterBy/sortBy in this component
-            this.eventService.getEvent(+params['id']).subscribe((event: IEvent) => {
-                this.event = event;
-                this.addMode = false;
-            })
+            this.event = this.route.snapshot.data['event']
+            this.addMode = false;
         })
     }
 

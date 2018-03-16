@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router'
 import { Error404Component } from './errors/404.component';
 
-import { EventsListComponent,EventDetailsComponent, CreateEventComponent,EventListResolver,EventRouterActivator, CreateSessionComponent} from './events/index'
+import { EventsListComponent,EventDetailsComponent, CreateEventComponent,EventListResolver,EventResolver, CreateSessionComponent} from './events/index'
 
 export const appRoutes: Routes = [
     //Placing events/new first is important as if it's after events/:id angular assumes 
@@ -12,7 +12,7 @@ export const appRoutes: Routes = [
     { path: 'events', component: EventsListComponent, 
      resolve: {events: EventListResolver} },
     //Adding route guard using service below to canActivate
-    { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouterActivator]},
+    { path: 'events/:id', component: EventDetailsComponent, resolve: {event: EventResolver}},
     { path: '', redirectTo: '/events', pathMatch: 'full'},
     { path: '404', component: Error404Component},
     { path: 'user', loadChildren: 'app/users/user.module#UserModule'},
