@@ -22,8 +22,9 @@ export class EventDetailsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.route.params.forEach((params: Params) => {
-            this.event = this.route.snapshot.data['event']
+        //This is listening to change in this.route.data object
+        this.route.data.forEach((data) => {
+            this.event = data['event']
             this.addMode = false;
         })
     }
