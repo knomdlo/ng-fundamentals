@@ -11,9 +11,9 @@ import { Component, Input } from '@angular/core'
             <div>Time: {{event.time}}</div>
             <div>Price: {{event.price | currency:'INR':true}}</div>
             <div>
-            <span>Location: {{event.location.address}}</span>
+            <span>Location: {{event.location?.address}}</span>
             <span>&nbsp,</span>
-            <span>{{event.location.city}}, {{event.location.country}}</span>
+            <span>{{event.location?.city}}, {{event.location?.country}}</span>
             </div>
         </div>
         </div>`
